@@ -21,7 +21,12 @@ const rows = [
 
 export default function DenseTable() {
     return (
-        <TableContainer component={Paper}>
+        <TableContainer
+            component={Paper}
+            sx={{
+                width: '100%',
+            }}
+        >
             <Table size="small" aria-label="a dense table">
                 <TableHead>
                     <TableRow>

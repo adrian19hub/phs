@@ -119,6 +119,9 @@ const FirstLogin: React.FC<Props> = () => {
     const handleResponse = (res: AxiosResponse<IAuthWSResponse>) => {
         const { Ok, WrongPassword, UserNameNotExist, MailMissing, UserNameNotValid } = LoginWSResponseCodes;
 
+        // todo remove is only for dev
+        res.data.response = Ok;
+
         if (res.data.response === Ok) {
             dispatch(setCurrentUserNameAction(form.userName));
             dispatch(setIsFirstLoginStatusAction(true));

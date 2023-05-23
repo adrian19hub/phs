@@ -5,6 +5,8 @@ import { loginRootSelector, setServerAuthTokenAction } from '../store/slices/log
 import Home from '../screens/Home/Home.index';
 import Login from '../screens/Login/Login';
 import styled from 'styled-components';
+import Alert from '../components/Alert';
+import useAlert from '../hooks/useAlert';
 
 export const DEV_AUTH_PATH = 'http://localhost:3000/';
 
@@ -27,7 +29,7 @@ const NavAuth: React.FC<{}> = () => {
             window.location.href === RESET_PASSWORD_ROUTE
         ) {
             console.log('here');
-            navigate('/');
+            navigate('/login');
         }
     }, [window.location.href, serverAuthToken]);
 
@@ -37,7 +39,12 @@ const NavAuth: React.FC<{}> = () => {
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Home />,
+        element: (
+            <>
+                {/* <NavAuth /> */}
+                <Home />
+            </>
+        ),
     },
     {
         path: '/login',
@@ -48,17 +55,16 @@ const router = createBrowserRouter([
 const IndexContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    width: 350px;
-    height: ${window.screen.height * 0.98}px;
-    background-color: #cdcdcd;
+    background-color: #ffffff;
+    width: 100%;
 `;
 
 function Routing() {
+    const dispatch = useAppDispatch();
+
     const authFromSessions = sessionStorage.getItem(AUTH_TOKEN_KEY);
     const isLoggedIn = useAppSelector((state) => loginRootSelector(state).data.requests.isLoggedIn);
-
-    const dispatch = useAppDispatch();
+    const alertConfig = useAlert();
 
     if (authFromSessions) {
         dispatch(setServerAuthTokenAction(authFromSessions));
@@ -67,6 +73,7 @@ function Routing() {
     return (
         <IndexContainer>
             <RouterProvider router={router} />
+            <Alert {...alertConfig.props}>{alertConfig.message}</Alert>
         </IndexContainer>
     );
 }

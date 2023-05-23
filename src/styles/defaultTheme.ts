@@ -4,7 +4,7 @@ import { DefaultTheme } from 'styled-components';
 export const colors = {
     white: '#fff',
     black: 'rgb(0,0,0)',
-    blue: '#2196F3',
+    blue: '#1976d2',
     lightBlue: 'rgba(180, 190, 201, 0.303)',
     seaBlue: 'rgba(33, 150, 243, 0.08)',
     gray: '#C4C4C4',
