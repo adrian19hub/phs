@@ -5,7 +5,7 @@ const HomeContainer = styled.div`
     flex-direction: column;
     padding: 20px;
     width: 350px;
-    min-height: 600px;
+    height: ${window.screen.height * 0.98}px;
     background-color: #cdcdcd;
 `;
 
