@@ -21,17 +21,18 @@ import { LoadingButton } from '@mui/lab';
 import { RESET_PASSWORD_ROUTE } from '../../../Routing/Routing';
 import { AUTH_ERROR_MESSAGES } from '../../../constants/errorMessages';
 import { useDispatchAlert } from '../../../hooks/useAlert';
+import { colors } from '../../../styles/defaultTheme';
 
 export const InnerContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 610px;
-    height: 412px;
     border: solid 1px lightgray;
     border-radius: 4px;
     background-color: ${colors.white};
+    width: 300px;
+    height: 400px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 `;
 
@@ -40,7 +41,6 @@ export const loginContainer = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: '80%';
 `;
 
 const useChangeHandler = () => {
@@ -71,7 +71,7 @@ const FirstLogin: React.FC<Props> = () => {
         try {
             setIsLoading(true);
 
-            const res = await getGeneralLogin({
+            getGeneralLogin({
                 dbUrl: testUrl,
                 userName: form.userName,
                 password: form.password,
@@ -142,13 +142,12 @@ const FirstLogin: React.FC<Props> = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexDirection: 'column',
-                height: '80%',
             }}
         >
-            <h1 style={{ marginBottom: '40px' }}>התחברות</h1>
+            <h1 style={{ paddingBottom: '0px' }}>התחברות</h1>
             <InnerContainer className="first-login-container">
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    <h3 style={{ fontSize: '18px', marginBottom: '30px' }}>הזן שם משתמש וסיסמא</h3>
+                    <h3 style={{ fontSize: '18px' }}>הזן שם משתמש וסיסמא</h3>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                     <TextField
@@ -171,12 +170,12 @@ const FirstLogin: React.FC<Props> = () => {
                         value={form.password}
                         onChange={(e) => handleChange(e, 'password')}
                     ></TextField>
-                    <div
+                    {/* <div
                         onClick={onResetPassword}
                         style={{ fontSize: '12px', margin: '0px', color: 'blue', cursor: 'pointer' }}
                     >
                         שכחתי סיסמה
-                    </div>
+                    </div> */}
                     <LoadingButton
                         loading={isLoading}
                         sx={{ backgroundColor: '#2196F3' }}

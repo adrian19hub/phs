@@ -27,7 +27,7 @@ const Text = styled.p<{
     font-size: 36px;
     line-height: 100%;
     color: black;
-    margin: 0 10px 0 0;
+    padding: 0 10px 0 0;
     cursor: pointer;
 `;
 

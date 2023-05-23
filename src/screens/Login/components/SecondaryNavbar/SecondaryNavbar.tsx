@@ -35,7 +35,7 @@ const SecondaryNavbar = () => {
     return (
         <styles.Container>
             <HomeIcon onClick={onHome} style={{ cursor: 'pointer', marginLeft: '10px' }} />
-            <div style={{ display: 'flex', gap: '10px', marginRight: '10px' }}>
+            <div style={{ display: 'flex', gap: '10px', paddingRight: '10px' }}>
                 <LogoutIcon onClick={logout} style={{ cursor: 'pointer' }} />
                 <span>שלום, {currentUserName} </span>
             </div>

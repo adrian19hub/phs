@@ -14,7 +14,6 @@ import {
     IPayloadWSChangePassword,
     IChangePasswordResponse
 } from './types';
-
 import instance, { buildEncriptedUrl, getInstanceWithTime, buildTestUrl } from '../api/index';
 
 

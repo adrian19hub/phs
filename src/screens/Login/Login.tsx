@@ -27,10 +27,10 @@ const Login = () => {
     };
 
     return (
-        <Container>
+        <div>
             {!firstLoginStatus && <FirstLogin />}
             {firstLoginStatus && <SecondLogin onReturnToFirstLogin={onReturnToFirstLogin} />}
-        </Container>
+        </div>
     );
 };
 

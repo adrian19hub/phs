@@ -129,7 +129,7 @@ const SecondLogin: React.FC<Props> = ({ onReturnToFirstLogin }) => {
                 height: '80%',
             }}
         >
-            <h1 style={{ marginBottom: '40px' }}>התחברות</h1>
+            <h1 style={{ paddingBottom: '40px' }}>התחברות</h1>
             <InnerContainer className="first-login-container">
                 <h3 style={{ color: '#2196F3' }}>הזדהות עם קוד לדואר האלקטרוני</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>

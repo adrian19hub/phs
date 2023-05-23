@@ -1,11 +1,10 @@
-import { Login } from '@mui/icons-material';
-import { Container, Alert } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useNavigate, createBrowserRouter, RouterProvider } from 'react-router-dom';
-import useAlert from '../hooks/useAlert';
 import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { loginRootSelector, setServerAuthTokenAction } from '../store/slices/loginSlice';
 import Home from '../screens/Home/Home.index';
+import Login from '../screens/Login/Login';
+import styled from 'styled-components';
 
 export const DEV_AUTH_PATH = 'http://localhost:3000/';
 
@@ -46,8 +45,16 @@ const router = createBrowserRouter([
     },
 ]);
 
+const IndexContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 350px;
+    height: ${window.screen.height * 0.98}px;
+    background-color: #cdcdcd;
+`;
+
 function Routing() {
-    const alertConfig = useAlert();
     const authFromSessions = sessionStorage.getItem(AUTH_TOKEN_KEY);
     const isLoggedIn = useAppSelector((state) => loginRootSelector(state).data.requests.isLoggedIn);
 
@@ -58,13 +65,9 @@ function Routing() {
     }
 
     return (
-        <>
-            <Container>
-                <NavAuth />
-                <RouterProvider router={router} />
-                <Alert {...alertConfig.props}>{alertConfig.message}</Alert>
-            </Container>
-        </>
+        <IndexContainer>
+            <RouterProvider router={router} />
+        </IndexContainer>
     );
 }
 

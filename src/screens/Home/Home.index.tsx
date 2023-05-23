@@ -5,10 +5,11 @@ import styled, { CSSObject, css } from 'styled-components';
 import DenseTable from './components/Table';
 
 const Home: React.FC = (props: {}) => {
+    console.log('Home');
     return (
-        <Styles.HomeContainer>
+        <div>
             <DenseTable />
-        </Styles.HomeContainer>
+        </div>
     );
 };
 

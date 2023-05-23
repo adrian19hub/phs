@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { alertConfigSelector, setAlertConfigAction } from '../store/slices/common/commonSlice';
 // import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import { alertConfigSelector, setAlertConfigAction } from 'src/store/slices/common/commonSlice';
-import { useAppDispatch, useAppSelector } from '../screens/Old/store/hooks';
 
 
 export type Severity = 'error' | 'success' | 'info' | 'warning';
